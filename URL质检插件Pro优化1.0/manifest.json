@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "URL质检助手",
+  "version": "3.1",
+  "description": "【稳定版】一键提取、在新窗口打开/关闭页面URL，并支持标记。",
+  "author": "艾合 ",
+  
+  "permissions": [
+    "tabs",
+    "system.display",
+    "storage" 
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["https://mate-label.appendata.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
